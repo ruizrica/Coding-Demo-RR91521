@@ -105,7 +105,7 @@
         {
             NSManagedObject *managedObject = creationBlock(objectDictionary, insertContext);
             if ( managedObject != nil )
-            {
+            {   NSLog(@"Object: %@",managedObject);
                 [insertedObjects addObject:managedObject];
             }
         }
