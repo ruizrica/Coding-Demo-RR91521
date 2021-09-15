@@ -107,6 +107,8 @@
 //        }
     }];
     
+    
+    
     DetailViewController *dc = [DetailViewController new];
     dc.device = device;
     [self.navigationController pushViewController:dc animated:YES];

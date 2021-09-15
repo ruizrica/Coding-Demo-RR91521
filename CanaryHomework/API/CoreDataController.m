@@ -82,29 +82,25 @@
     dispatch_async(self.reloadQueue, ^ {
         [[APIClient sharedClient] getDevice:deviceID readingsWithCompletionBlock:^(BOOL success, id responseObject) {
             if (success) {
-                //NSLog(@"responseObject: %@",responseObject);
                 Device *device = [Device deviceWithID:deviceID managedObjectContext:self.privateObjectContext createIfNeeded:YES];
                 [device removeReadings:device.readings];
                 [weakSelf insertObjectsWithDictionaries:responseObject withCreationBlock:^NSManagedObject *(NSDictionary *dictionary, NSManagedObjectContext *insertContext) {
                     return [Reading readingFromDictionary:dictionary forDevice:deviceID managedObjectContext:insertContext];
 
                 } completionBlock:^(NSArray *objects, NSError *error) {
-                    
+                    if (completionBlock != nil){
+                        completionBlock(YES, YES, objects);
+                    }
                 }];
             }
         }];
     });
 }
-- (void)insertObjectsWithDictionaries:(NSArray *)objectDictionaries withCreationBlock:(NSManagedObject *(^)(NSDictionary *, NSManagedObjectContext *))creationBlock completionBlock:(void(^)(NSArray *, NSError *))completionBlock {
 
+- (void)insertObjectsWithDictionaries:(NSArray *)objectDictionaries withCreationBlock:(NSManagedObject *(^)(NSDictionary *, NSManagedObjectContext *))creationBlock completionBlock:(void(^)(NSArray *, NSError *))completionBlock {
     NSManagedObjectContext *insertContext = self.privateObjectContext;
     NSMutableArray *insertedObjects = [NSMutableArray new];
-    NSMutableArray *validatedObjectDictionaries = [[NSMutableArray alloc]init];
-    for (NSDictionary *device in objectDictionaries) {
-        [validatedObjectDictionaries addObject:@{@"id":[NSString stringWithFormat:@"%@",device[@"id"]],
-                          @"name":[NSString stringWithFormat:@"%@",device[@"name"]]}];
-    }
-    
+    NSArray *validatedObjectDictionaries = [self validateObjects:objectDictionaries];
     __block NSError *error;
     [insertContext performBlockAndWait:^ {
         for ( NSDictionary *objectDictionary in validatedObjectDictionaries )
@@ -127,6 +123,27 @@
     {
         completionBlock(insertedObjects, error);
     }
+}
+
+- (NSArray *)validateObjects:(NSArray *)objectDictionaries {
+    
+//    NSLog(@"objectDictionaries: %@", objectDictionaries);
+    NSNumberFormatter *numberValidator = [[NSNumberFormatter alloc] init];
+    numberValidator.numberStyle = NSNumberFormatterDecimalStyle;
+    
+    NSMutableArray *validatedObjectDictionaries = [[NSMutableArray alloc]init];
+    for (NSDictionary *device in objectDictionaries) {
+        NSMutableDictionary *validatedObject = [[NSMutableDictionary alloc]init];
+        for (NSString *key in device.allKeys) {
+            if ([key isEqualToString:@"value"]) {
+                [validatedObject setValue:[numberValidator numberFromString:[NSString stringWithFormat:@"%@",device[key]]] forKey:[NSString stringWithFormat:@"%@",key]];
+            } else {
+                [validatedObject setValue:device[key] forKey:[NSString stringWithFormat:@"%@",key]];
+            }
+        }
+        [validatedObjectDictionaries addObject:validatedObject];
+    }
+    return validatedObjectDictionaries;
 }
 
 @end
