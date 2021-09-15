@@ -52,9 +52,9 @@
     [[CoreDataController sharedCache] getAllDevices:^(BOOL completed, BOOL success, NSArray * _Nonnull objects) {
         if (success) {
             self.devices = objects;
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [self.tableView reloadData];
-//            });
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
         } else {
             NSLog(@"error loading devices...");
         }
@@ -64,8 +64,10 @@
 #pragma mark - UITableView Data Source
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    Device *device = [self.devices objectAtIndex:indexPath.row];
     UITableViewCell *cell  = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.textLabel.text = @"data";
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",device.name];
     return cell;
 }
 
