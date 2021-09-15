@@ -33,18 +33,33 @@
         
         self.view.backgroundColor = [UIColor whiteColor];
         
+        // Temp
         float xOffset = 20;
-        UILabel *min = [Theme rrLabel:CGRectMake(xOffset, 110, 60, 30)];
-        min.text = @"MIN:";
-        [self.view addSubview:min];
+        UILabel *minTemp = [Theme rrLabel:CGRectMake(xOffset, 110, 60, 30)];
+        minTemp.text = @"MIN:";
+        [self.view addSubview:minTemp];
         
-        UILabel *avg = [Theme rrLabel:CGRectMake(xOffset+70, 110, 60, 30)];
-        avg.text = @"AVG:";
-        [self.view addSubview:avg];
+        UILabel *avgTemp = [Theme rrLabel:CGRectMake(xOffset+70, 110, 60, 30)];
+        avgTemp.text = @"AVG:";
+        [self.view addSubview:avgTemp];
         
-        UILabel *max = [Theme rrLabel:CGRectMake(xOffset+140, 110, 60, 30)];
-        max.text = @"MAX:";
-        [self.view addSubview:max];
+        UILabel *maxTemp = [Theme rrLabel:CGRectMake(xOffset+140, 110, 60, 30)];
+        maxTemp.text = @"MAX:";
+        [self.view addSubview:maxTemp];
+        
+        // Humidity
+        float yOffset = 190;
+        UILabel *minHumidity = [Theme rrLabel:CGRectMake(xOffset, yOffset, 60, 30)];
+        minHumidity.text = @"MIN:";
+        [self.view addSubview:minHumidity];
+        
+        UILabel *avgHumidity = [Theme rrLabel:CGRectMake(xOffset+70, yOffset, 60, 30)];
+        avgHumidity.text = @"AVG:";
+        [self.view addSubview:avgHumidity];
+        
+        UILabel *maxHumidity = [Theme rrLabel:CGRectMake(xOffset+140, yOffset, 60, 30)];
+        maxHumidity.text = @"MAX:";
+        [self.view addSubview:maxHumidity];
 
     });
 }
