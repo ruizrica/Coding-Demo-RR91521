@@ -98,14 +98,19 @@
 
     NSManagedObjectContext *insertContext = self.privateObjectContext;
     NSMutableArray *insertedObjects = [NSMutableArray new];
+    NSMutableArray *validatedObjectDictionaries = [[NSMutableArray alloc]init];
+    for (NSDictionary *device in objectDictionaries) {
+        [validatedObjectDictionaries addObject:@{@"id":[NSString stringWithFormat:@"%@",device[@"id"]],
+                          @"name":[NSString stringWithFormat:@"%@",device[@"name"]]}];
+    }
     
     __block NSError *error;
     [insertContext performBlockAndWait:^ {
-        for ( NSDictionary *objectDictionary in objectDictionaries )
+        for ( NSDictionary *objectDictionary in validatedObjectDictionaries )
         {
             NSManagedObject *managedObject = creationBlock(objectDictionary, insertContext);
             if ( managedObject != nil )
-            {   NSLog(@"Object: %@",managedObject);
+            {
                 [insertedObjects addObject:managedObject];
             }
         }
