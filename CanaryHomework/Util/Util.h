@@ -1,17 +1,17 @@
 //
-//  RRLabel.h
+//  Util.h
 //  CanaryHomework
 //
 //  Created by Kenetic Labs on 9/15/21.
 //  Copyright © 2021 Michael Schroeder. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RRLabel : UIView
-
+@interface Util : NSObject
++ (NSSet *)calculateReadings:(NSSet *)readings;
 @end
 
 NS_ASSUME_NONNULL_END

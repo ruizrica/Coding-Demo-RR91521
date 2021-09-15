@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 #pragma mark - Default iPhone/iPad Size Constants
 #define kScreenSize [[UIScreen mainScreen] bounds].size
@@ -41,7 +42,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Theme : NSObject
-
++ (UILabel *)rrLabel:(CGRect)rect;
 @end
 
 NS_ASSUME_NONNULL_END

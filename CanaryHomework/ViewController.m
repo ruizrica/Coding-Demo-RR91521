@@ -98,20 +98,18 @@
     
     Device *device = [self.devices objectAtIndex:indexPath.row];
     [[CoreDataController sharedCache] getReadingsForDevice:device.deviceID completionBlock:^(BOOL completed, BOOL success, NSArray * _Nonnull objects) {
-        NSLog(@"Readings: %@",objects);
+        if (success == YES) {
 
-//        if (success == YES) {
-//            NSLog(@"Readings: %@",objects);
-//        } else {
-//            NSLog(@"Error Getting Readings...");
-//        }
+            NSLog(@"%@",objects);
+            DetailViewController *dc = [DetailViewController new];
+            dc.device = device;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.navigationController pushViewController:dc animated:YES];
+            });
+        } else {
+            NSLog(@"Error Getting Readings...");
+        }
     }];
-    
-    
-    
-    DetailViewController *dc = [DetailViewController new];
-    dc.device = device;
-    [self.navigationController pushViewController:dc animated:YES];
 }
 
 @end

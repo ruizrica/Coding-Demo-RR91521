@@ -10,4 +10,12 @@
 
 @implementation Theme
 
++ (UILabel *)rrLabel:(CGRect)rect {
+    UILabel *label = [[UILabel alloc]initWithFrame:rect];
+    label.backgroundColor = [kColorFlatBlack colorWithAlphaComponent:0.3];
+    label.font = kFontDemiBoldItalicWSize(14);
+    label.textAlignment = NSTextAlignmentCenter;
+    return label;
+}
+
 @end
