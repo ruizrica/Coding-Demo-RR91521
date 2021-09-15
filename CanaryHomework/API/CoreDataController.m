@@ -82,6 +82,7 @@
     dispatch_async(self.reloadQueue, ^ {
         [[APIClient sharedClient] getDevice:deviceID readingsWithCompletionBlock:^(BOOL success, id responseObject) {
             if (success) {
+                //NSLog(@"responseObject: %@",responseObject);
                 Device *device = [Device deviceWithID:deviceID managedObjectContext:self.privateObjectContext createIfNeeded:YES];
                 [device removeReadings:device.readings];
                 [weakSelf insertObjectsWithDictionaries:responseObject withCreationBlock:^NSManagedObject *(NSDictionary *dictionary, NSManagedObjectContext *insertContext) {

@@ -10,7 +10,7 @@
 #import "DetailViewController.h"
 #import "CoreDataController.h"
 #import "Device+CoreDataProperties.h"
-#import "Constants.h"
+#import "Theme.h"
 
 @interface ViewController ()
 
@@ -45,7 +45,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
 }
-#pragma mark - Load Devices
+#pragma mark - Device Data
 
 - (void)loadDevices {
  
@@ -94,8 +94,21 @@
 
 #pragma mark UITableView Delegate 
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    Device *device = [self.devices objectAtIndex:indexPath.row];
+    [[CoreDataController sharedCache] getReadingsForDevice:device.deviceID completionBlock:^(BOOL completed, BOOL success, NSArray * _Nonnull objects) {
+        NSLog(@"Readings: %@",objects);
+
+//        if (success == YES) {
+//            NSLog(@"Readings: %@",objects);
+//        } else {
+//            NSLog(@"Error Getting Readings...");
+//        }
+    }];
+    
     DetailViewController *dc = [DetailViewController new];
+    dc.device = device;
     [self.navigationController pushViewController:dc animated:YES];
 }
 

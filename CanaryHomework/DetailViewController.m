@@ -17,10 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"About Device";
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.title = [NSString stringWithFormat:@"About %@",self.device.name];
+    [self drawUI];
+}
+
+- (void)drawUI {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        self.view.backgroundColor = [UIColor whiteColor];
+
+    });
 }
 
 
