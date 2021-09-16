@@ -4,14 +4,19 @@
 In **ViewController** I added a function named **loadDevices**. LoadDevices calls [[CoreDataController sharedCache] getAllDevices] and populates a NSArray named devices.  Then I connected the tableview data source as I tested the model.  Here I noticed the type-casting problem into Core Data, the objects were being inserted without validating the correct type.  My first solution was to hard code a dictionary with the values to test if that corrected the problem. After testing I created a new function named **validateObjects**.  <br/><br/>ValidateObjects iterates through the returned dictionary objects and re-casts them as Strings, except for **value** which is a numeric type.  ValidateObjects is generic enough to support both Reading and Device classes.  Once the completion block from **getAllDevices** is called the TableView is reloaded to display the device list. 
 <br/>
 <br/>
-After selecting a device from the tableview in **didSelectRowAtIndexPath** [[CoreDataController sharedCache] getReadingsForDevice] is called and passed into **DetailViewController**.  DetailViewController has property named Device of type **Device** that takes the passed object from ViewContoller.  With the local property Device the UI is drawn from the **Theme** class and added to the DetailViewController's view as a subview.
+After selecting a device from the tableview in **didSelectRowAtIndexPath**, getReadingsForDevice is called and the returned Device object is passed into **DetailViewController**.  With the Device object the min, avg and max are calculated and returned as a dictionary from calculateReadings in the Util class. Then the UI is drawn from the **Theme** class and added to the DetailViewController's view as a subview.
 <br/>
 <br/>
-* *UI*
-  * All ui elements are drawn from the **Theme** class
-* *Util*
-  * Calculate min, avg and max values from readings
-  + (NSDictionary *)calculateReadings:(NSArray *)readings 
+### How To Run:
+From the root of the directory double-click **CanaryHomework.xcodeproj** to open the project.  Select a device from the silumator list and run.
+<br/>
+<br/>
+### Theme Class:
+All UI elements are drawn from the [Theme](#https://github.com/ruizrica/Coding-Demo-RR91521/tree/master/CanaryHomework/Theme) class.
+<br/>
+<br/>
+### Util Class:
+Calculate min, avg and max values from readings
 ```Objective-C 
 + (NSDictionary *)calculateReadings:(NSArray *)readings {
     
@@ -45,6 +50,12 @@ After selecting a device from the tableview in **didSelectRowAtIndexPath** [[Cor
     return calculatedReadings;
 }
 ```
+
+### Unit Tests:
+testLoadDevices - Tests that [[CoreDataController sharedCache] getAllDevices] returns a object count greater than 0. It also tests the Device class properties deviceID and name on a test object from returned function.
+<br/>
+<br/>
+testGetReadingsForDevice - Tests that [[CoreDataController sharedCache] getReadingsForDevice] returns a object of type Reading. It also tests the Device class properties type on a test object from returned function.
 
 ### [Problems Found](#Problems):
 * *NSInvalidArgumentException*
