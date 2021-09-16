@@ -20,49 +20,16 @@
     // Do any additional setup after loading the view.
     self.title = [NSString stringWithFormat:@"About %@",self.device.name];
     [self drawUI];
-//    NSLog(@"Device: %@",self.device);
 }
 
 - (void)drawUI {
         
-    NSSet *readings = [Util calculateReadings:self.device.readings];
-    NSLog(@"Readings %@",readings);
-
-
+    NSDictionary *readings = [Util calculateReadings:self.device.readings];
+    UIView *deviceDetails = [Theme deviceDetails:readings];
+    __weak DetailViewController *weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        
-        self.view.backgroundColor = [UIColor whiteColor];
-        
-        // Temp
-        float xOffset = 20;
-        UILabel *minTemp = [Theme rrLabel:CGRectMake(xOffset, 110, 60, 30)];
-        minTemp.text = @"MIN:";
-        [self.view addSubview:minTemp];
-        
-        UILabel *avgTemp = [Theme rrLabel:CGRectMake(xOffset+70, 110, 60, 30)];
-        avgTemp.text = @"AVG:";
-        [self.view addSubview:avgTemp];
-        
-        UILabel *maxTemp = [Theme rrLabel:CGRectMake(xOffset+140, 110, 60, 30)];
-        maxTemp.text = @"MAX:";
-        [self.view addSubview:maxTemp];
-        
-        // Humidity
-        float yOffset = 190;
-        UILabel *minHumidity = [Theme rrLabel:CGRectMake(xOffset, yOffset, 60, 30)];
-        minHumidity.text = @"MIN:";
-        [self.view addSubview:minHumidity];
-        
-        UILabel *avgHumidity = [Theme rrLabel:CGRectMake(xOffset+70, yOffset, 60, 30)];
-        avgHumidity.text = @"AVG:";
-        [self.view addSubview:avgHumidity];
-        
-        UILabel *maxHumidity = [Theme rrLabel:CGRectMake(xOffset+140, yOffset, 60, 30)];
-        maxHumidity.text = @"MAX:";
-        [self.view addSubview:maxHumidity];
-
+        [weakSelf.view addSubview:deviceDetails];
     });
 }
-
 
 @end

@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Util : NSObject
-+ (NSSet *)calculateReadings:(NSSet *)readings;
++ (NSDictionary *)calculateReadings:(NSSet *)readings;
 @end
 
 NS_ASSUME_NONNULL_END

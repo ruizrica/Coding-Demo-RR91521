@@ -138,7 +138,7 @@
             if ([key isEqualToString:@"value"]) {
                 [validatedObject setValue:[numberValidator numberFromString:[NSString stringWithFormat:@"%@",device[key]]] forKey:[NSString stringWithFormat:@"%@",key]];
             } else {
-                [validatedObject setValue:device[key] forKey:[NSString stringWithFormat:@"%@",key]];
+                [validatedObject setValue:[NSString stringWithFormat:@"%@",device[key]] forKey:[NSString stringWithFormat:@"%@",key]];
             }
         }
         [validatedObjectDictionaries addObject:validatedObject];

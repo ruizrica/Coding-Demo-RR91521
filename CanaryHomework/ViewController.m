@@ -99,8 +99,6 @@
     Device *device = [self.devices objectAtIndex:indexPath.row];
     [[CoreDataController sharedCache] getReadingsForDevice:device.deviceID completionBlock:^(BOOL completed, BOOL success, NSArray * _Nonnull objects) {
         if (success == YES) {
-
-            NSLog(@"%@",objects);
             DetailViewController *dc = [DetailViewController new];
             dc.device = device;
             dispatch_async(dispatch_get_main_queue(), ^{

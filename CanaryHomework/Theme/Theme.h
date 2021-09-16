@@ -42,7 +42,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Theme : NSObject
-+ (UILabel *)rrLabel:(CGRect)rect;
++ (UIView *)deviceDetails:(NSDictionary *)readings;
++ (UILabel *)label:(CGRect)rect;
 @end
 
 NS_ASSUME_NONNULL_END
