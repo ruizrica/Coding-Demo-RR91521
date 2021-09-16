@@ -40,7 +40,7 @@
  ```Objective-C 
  // getReadingsForDevice
 completionBlock:^(NSArray *objects, NSError *error) {
-                   // This was missing...
+                   // Below completionBlock was missing...
                     if (completionBlock != nil){
                         completionBlock(YES, YES, objects);
                     }
