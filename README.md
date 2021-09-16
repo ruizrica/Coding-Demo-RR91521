@@ -53,6 +53,9 @@ Calculate min, avg and max values from readings
 
 ### Unit Tests:
 testLoadDevices - Tests that [[CoreDataController sharedCache] getAllDevices] returns a object count greater than 0. It also tests the Device class properties deviceID and name on a test object from returned function.
+<br/>
+<br/>
+testGetReadingsForDevice - Tests that [[CoreDataController sharedCache] getReadingsForDevice] returns a object of type Reading. It also tests the Device class properties type on a test object from returned function.
 
 ### [Problems Found](#Problems):
 * *NSInvalidArgumentException*
