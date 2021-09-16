@@ -11,17 +11,17 @@ After selecting a device from the tableview in **didSelectRowAtIndexPath** [[Cor
 From the root of the directory double-click **CanaryHomework.xcodeproj** to the project.  Select a device from the silumator list and run.
 <br/>
 <br/>
-### Unit Tests:
-this is a unit test
-<br/>
-<br/>
-### UI:
+### Theme Class:
 All ui elements are drawn from the **Theme** class
 <br/>
 <br/>
-### Util:
+### Util Class:
 Calculate min, avg and max values from readings
 > (NSDictionary *)calculateReadings:(NSArray *)readings 
+<br/>
+<br/>
+### Unit Tests:
+this is a unit test
 
 ```Objective-C 
 + (NSDictionary *)calculateReadings:(NSArray *)readings {
