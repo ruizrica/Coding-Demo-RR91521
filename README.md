@@ -20,6 +20,7 @@ Calculate min, avg and max values from readings
 > (NSDictionary *)calculateReadings:(NSArray *)readings 
 <br/>
 <br/>
+
 ### Unit Tests:
 this is a unit test
 
