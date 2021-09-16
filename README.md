@@ -1,7 +1,6 @@
 # Coding Demo RR91521
 
-[anchor](#Problems)
-### Problems Found:
+### [Problems Found](#Problems):
 * *NSInvalidArgumentException*
   * Error loding api data into Core Data. 
   * **Solution:** Added data validation to CoreDataController and corrected type casting.<br/>
