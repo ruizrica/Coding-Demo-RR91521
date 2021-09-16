@@ -8,7 +8,7 @@ After selecting a device from the tableview in **didSelectRowAtIndexPath**, [[Co
 <br/>
 <br/>
 ### How To Run:
-From the root of the directory double-click **CanaryHomework.xcodeproj** to open the project.  Select a device from the silumator list and run.
+From the root of the directory double-click **CanaryHomework.xcodeproj** to open the project.  Select a device from the simulator list and run.
 <br/>
 <br/>
 ### Theme Class:
@@ -52,14 +52,14 @@ Calculate min, avg and max values from readings
 ```
 
 ### Unit Tests:
-testLoadDevices - Tests that [[CoreDataController sharedCache] getAllDevices] returns a object count greater than 0. It also tests the Device class properties deviceID and name on a test object from returned function.
+testLoadDevices - Tests that [[CoreDataController sharedCache] getAllDevices] returns a object count greater than 0. It also tests the Device class properties deviceID and name on a test object from the returned function.
 <br/>
 <br/>
-testGetReadingsForDevice - Tests that [[CoreDataController sharedCache] getReadingsForDevice] returns a object of type Reading. It also tests the Device class properties type on a test object from returned function.
+testGetReadingsForDevice - Tests that [[CoreDataController sharedCache] getReadingsForDevice] returns an object of type Reading. It also tests the Device class properties type on a test object from the returned function.
 
 ### [Problems Found](#Problems):
 * *NSInvalidArgumentException*
-  * Error loding api data into Core Data. 
+  * Error loading api data into Core Data. 
   * **Solution:** Added data validation to CoreDataController and corrected type casting.<br/>
     **CoreDataController.m**<br/>
     -(NSArray *)validateObjects:(NSArray *)objectDictionaries
@@ -88,7 +88,7 @@ testGetReadingsForDevice - Tests that [[CoreDataController sharedCache] getReadi
 ```` 
 
     
-* *getReadingsForDevice - Not Corrently Implemented*
+* *getReadingsForDevice - Not Correctly Implemented*
   * getReadingsForDevice loads no data.
   * **Solution:** Implemented completion block with parameters<br/>
     **CoreDataController.m**<br/>
@@ -104,3 +104,4 @@ completionBlock:^(NSArray *objects, NSError *error) {
                 }];
 
 ```` 
+
