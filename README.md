@@ -7,11 +7,21 @@ In **ViewController** I added a function named **loadDevices**. LoadDevices call
 After selecting a device from the tableview in **didSelectRowAtIndexPath** [[CoreDataController sharedCache] getReadingsForDevice] is called and passed into **DetailViewController**.  DetailViewController has property named Device of type **Device** that takes the passed object from ViewContoller.  With the local property Device the UI is drawn from the **Theme** class and added to the DetailViewController's view as a subview.
 <br/>
 <br/>
-* *UI*
+### How To Run:
+<br/>
+<br/>
+### Unit Tests:
+<br/>
+<br/>
+### UI:
   * All ui elements are drawn from the **Theme** class
-* *Util*
+<br/>
+<br/>
+### Util:
   * Calculate min, avg and max values from readings
   + (NSDictionary *)calculateReadings:(NSArray *)readings 
+<br/>
+<br/>
 ```Objective-C 
 + (NSDictionary *)calculateReadings:(NSArray *)readings {
     
