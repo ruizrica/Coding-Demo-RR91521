@@ -17,13 +17,6 @@ All ui elements are drawn from the **Theme** class
 <br/>
 ### Util Class:
 Calculate min, avg and max values from readings
-> (NSDictionary *)calculateReadings:(NSArray *)readings 
-<br/>
-<br/>
-
-### Unit Tests:
-this is a unit test
-
 ```Objective-C 
 + (NSDictionary *)calculateReadings:(NSArray *)readings {
     
@@ -57,6 +50,9 @@ this is a unit test
     return calculatedReadings;
 }
 ```
+
+### Unit Tests:
+this is a unit test
 
 ### [Problems Found](#Problems):
 * *NSInvalidArgumentException*
