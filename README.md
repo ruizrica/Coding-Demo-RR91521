@@ -4,7 +4,7 @@
 In **ViewController** I added a function named **loadDevices**. LoadDevices calls [[CoreDataController sharedCache] getAllDevices] and populates a NSArray named devices.  Then I connected the tableview data source as I tested the model.  Here I noticed the type-casting problem into Core Data, the objects were being inserted without validating the correct type.  My first solution was to hard code a dictionary with the values to test if that corrected the problem. After testing I created a new function named **validateObjects**.  <br/><br/>ValidateObjects iterates through the returned dictionary objects and re-casts them as Strings, except for **value** which is a numeric type.  ValidateObjects is generic enough to support both Reading and Device classes.  Once the completion block from **getAllDevices** is called the TableView is reloaded to display the device list.
 <br/>
 <br/>
-After selecting a device from the tableview in **didSelectRowAtIndexPath** [[CoreDataController sharedCache] getReadingsForDevice] is called and passed into **DetailViewController**.  DetailViewController has property named Device of type **Device** that takes the passed object from ViewContoller.  With the local property Device the UI is drawn from the **Theme** class and added to the view as a subview.
+After selecting a device from the tableview in **didSelectRowAtIndexPath** [[CoreDataController sharedCache] getReadingsForDevice] is called and passed into **DetailViewController**.  DetailViewController has property named Device of type **Device** that takes the passed object from ViewContoller.  With the local property Device the UI is drawn from the **Theme** class and added to the DetailViewController's view as a subview.
 <br/>
 <br/>
 * *UI*
