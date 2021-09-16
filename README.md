@@ -1,13 +1,10 @@
 # Coding Demo RR91521
 ### Summary:
+
 In **ViewController** I added a function named **loadDevices**. LoadDevices calls [[CoreDataController sharedCache] getAllDevices] and populates a NSArray named devices.  Then I connected the tableview data source as I tested the model.  Here I noticed the type-casting problem into Core Data, the objects were being inserted without validating the correct type.  My first solution was to hard code a dictionary with the values to test if that corrected the problem. After testing I created a new function named **validateObjects**.  <br/><br/>ValidateObjects iterates through the returned dictionary objects and re-casts them as Strings, except for **value** which is a numeric type.  ValidateObjects is generic enough to support both Reading and Device classes.  Once the completion block from **getAllDevices** is called the TableView is reloaded to display the device list. 
 <br/>
 <br/>
-After selecting a device from the tableview in **didSelectRowAtIndexPath**, getReadingsForDevice is called and the returned Device object is passed into **DetailViewController**.  With the Device object the min, avg and max are calculated and returned as a dictionary from calculateReadings in the Util class. Then the UI is drawn from the **Theme** class and added to the DetailViewController's view as a subview.
-<br/>
-<br/>
-### Note About API:
-There only seems to be object populated with data "Device 2" with an id of "2".
+After selecting a device from the tableview in **didSelectRowAtIndexPath**, [[CoreDataController sharedCache] getReadingsForDevice] is called and the returned Device object is passed into **DetailViewController**.  DetailViewController has a property named Device of type **Device** that takes the passed object from ViewContoller.  With the local property Device the min, avg and max are calculated and returned as a dictionary from calculateReadings in the Util class. Then the UI is drawn from the **Theme** class and added to the DetailViewController's view as a subview.
 <br/>
 <br/>
 ### How To Run:
@@ -54,9 +51,13 @@ Calculate min, avg and max values from readings
 }
 ```
 
+### Unit Tests:
+testLoadDevices - Tests that [[CoreDataController sharedCache] getAllDevices] returns a object count greater than 0. It also tests the Device class properties deviceID and name on a test object from returned function.
+<br/>
+<br/>
+testGetReadingsForDevice - Tests that [[CoreDataController sharedCache] getReadingsForDevice] returns a object of type Reading. It also tests the Device class properties type on a test object from returned function.
 
-
-### Problems Found:
+### [Problems Found](#Problems):
 * *NSInvalidArgumentException*
   * Error loding api data into Core Data. 
   * **Solution:** Added data validation to CoreDataController and corrected type casting.<br/>
