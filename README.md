@@ -8,9 +8,11 @@ After selecting a device from the tableview in **didSelectRowAtIndexPath** [[Cor
 <br/>
 <br/>
 ### How To Run:
+From the root of the directory double-click **CanaryHomework.xcodeproj** to the project.  Select a device from the silumator list and run.
 <br/>
 <br/>
 ### Unit Tests:
+this is a unit test
 <br/>
 <br/>
 ### UI:
