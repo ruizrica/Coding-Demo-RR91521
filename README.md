@@ -12,7 +12,7 @@ From the root of the directory double-click **CanaryHomework.xcodeproj** to open
 <br/>
 <br/>
 ### Theme Class:
-All ui elements are drawn from the [Theme](#https://github.com/ruizrica/Coding-Demo-RR91521/tree/master/CanaryHomework/Theme) class
+All UI elements are drawn from the [Theme](#https://github.com/ruizrica/Coding-Demo-RR91521/tree/master/CanaryHomework/Theme) class.
 <br/>
 <br/>
 ### Util Class:
