@@ -38,7 +38,7 @@
     completionBlock(YES, YES, objects);
     
  ```Objective-C 
- // Line 80
+ // getReadingsForDevice
 completionBlock:^(NSArray *objects, NSError *error) {
                    // This was missing...
                     if (completionBlock != nil){
