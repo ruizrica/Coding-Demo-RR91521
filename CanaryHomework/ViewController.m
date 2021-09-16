@@ -49,11 +49,12 @@
 
 - (void)loadDevices {
  
+    __weak ViewController *weakSelf = self;
     [[CoreDataController sharedCache] getAllDevices:^(BOOL completed, BOOL success, NSArray * _Nonnull objects) {
         if (success) {
-            self.devices = objects;
+            weakSelf.devices = objects;
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
+                [weakSelf.tableView reloadData];
             });
         } else {
             NSLog(@"error loading devices...");

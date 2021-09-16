@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C92683726F2CEF00056A5D1 /* CanaryHomeworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C92683626F2CEF00056A5D1 /* CanaryHomeworkTests.m */; };
 		B21CD57B233A9320006994CA /* APICLient.m in Sources */ = {isa = PBXBuildFile; fileRef = B21CD57A233A9320006994CA /* APICLient.m */; };
 		B21CD582233AAE02006994CA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21CD581233AAE02006994CA /* DetailViewController.m */; };
 		B21CD585233AB8B4006994CA /* CoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21CD584233AB8B4006994CA /* CoreDataController.m */; };
@@ -29,7 +30,20 @@
 		DF51B646261269BD003CE517 /* AFNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = DF51B645261269BD003CE517 /* AFNetworking */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8C92683926F2CEF00056A5D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2E709252333FF38009B864F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2E7092C2333FF38009B864F;
+			remoteInfo = CanaryHomework;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		8C92683426F2CEF00056A5D1 /* CanaryHomeworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CanaryHomeworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C92683626F2CEF00056A5D1 /* CanaryHomeworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CanaryHomeworkTests.m; sourceTree = "<group>"; };
+		8C92683826F2CEF00056A5D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B21CD57A233A9320006994CA /* APICLient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APICLient.m; sourceTree = "<group>"; };
 		B21CD57C233A932E006994CA /* APIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		B21CD57E233A93F3006994CA /* Keys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
@@ -71,6 +85,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8C92683126F2CEF00056A5D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2E7092A2333FF38009B864F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -82,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C92683526F2CEF00056A5D1 /* CanaryHomeworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				8C92683626F2CEF00056A5D1 /* CanaryHomeworkTests.m */,
+				8C92683826F2CEF00056A5D1 /* Info.plist */,
+			);
+			path = CanaryHomeworkTests;
+			sourceTree = "<group>";
+		};
 		B21CD579233A92EF006994CA /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				B2E7092F2333FF38009B864F /* CanaryHomework */,
+				8C92683526F2CEF00056A5D1 /* CanaryHomeworkTests */,
 				B2E7092E2333FF38009B864F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -161,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				B2E7092D2333FF38009B864F /* CanaryHomework.app */,
+				8C92683426F2CEF00056A5D1 /* CanaryHomeworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,6 +241,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8C92683326F2CEF00056A5D1 /* CanaryHomeworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C92683D26F2CEF00056A5D1 /* Build configuration list for PBXNativeTarget "CanaryHomeworkTests" */;
+			buildPhases = (
+				8C92683026F2CEF00056A5D1 /* Sources */,
+				8C92683126F2CEF00056A5D1 /* Frameworks */,
+				8C92683226F2CEF00056A5D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8C92683A26F2CEF00056A5D1 /* PBXTargetDependency */,
+			);
+			name = CanaryHomeworkTests;
+			productName = CanaryHomeworkTests;
+			productReference = 8C92683426F2CEF00056A5D1 /* CanaryHomeworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B2E7092C2333FF38009B864F /* CanaryHomework */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B2E709462333FF39009B864F /* Build configuration list for PBXNativeTarget "CanaryHomework" */;
@@ -238,6 +288,10 @@
 				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Michael Schroeder";
 				TargetAttributes = {
+					8C92683326F2CEF00056A5D1 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = B2E7092C2333FF38009B864F;
+					};
 					B2E7092C2333FF38009B864F = {
 						CreatedOnToolsVersion = 10.3;
 					};
@@ -260,11 +314,19 @@
 			projectRoot = "";
 			targets = (
 				B2E7092C2333FF38009B864F /* CanaryHomework */,
+				8C92683326F2CEF00056A5D1 /* CanaryHomeworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8C92683226F2CEF00056A5D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2E7092B2333FF38009B864F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -276,6 +338,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8C92683026F2CEF00056A5D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C92683726F2CEF00056A5D1 /* CanaryHomeworkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2E709292333FF38009B864F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -303,7 +373,55 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8C92683A26F2CEF00056A5D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2E7092C2333FF38009B864F /* CanaryHomework */;
+			targetProxy = 8C92683926F2CEF00056A5D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		8C92683B26F2CEF00056A5D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A9ZAD4939Q;
+				INFOPLIST_FILE = CanaryHomeworkTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kenetic-labs.CanaryHomeworkTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CanaryHomework.app/CanaryHomework";
+			};
+			name = Debug;
+		};
+		8C92683C26F2CEF00056A5D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A9ZAD4939Q;
+				INFOPLIST_FILE = CanaryHomeworkTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kenetic-labs.CanaryHomeworkTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CanaryHomework.app/CanaryHomework";
+			};
+			name = Release;
+		};
 		B2E709442333FF39009B864F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -465,6 +583,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8C92683D26F2CEF00056A5D1 /* Build configuration list for PBXNativeTarget "CanaryHomeworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C92683B26F2CEF00056A5D1 /* Debug */,
+				8C92683C26F2CEF00056A5D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B2E709282333FF38009B864F /* Build configuration list for PBXProject "CanaryHomework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

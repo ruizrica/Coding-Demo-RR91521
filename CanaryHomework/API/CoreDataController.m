@@ -127,7 +127,6 @@
 
 - (NSArray *)validateObjects:(NSArray *)objectDictionaries {
     
-//    NSLog(@"objectDictionaries: %@", objectDictionaries);
     NSNumberFormatter *numberValidator = [[NSNumberFormatter alloc] init];
     numberValidator.numberStyle = NSNumberFormatterDecimalStyle;
     
