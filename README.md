@@ -36,3 +36,14 @@
   * **Solution:** Implemented completion block with parameters<br/>
     **CoreDataController.m**<br/>
     completionBlock(YES, YES, objects);
+    
+ ```Objective-C 
+ // Line 80
+completionBlock:^(NSArray *objects, NSError *error) {
+                   // This was missing...
+                    if (completionBlock != nil){
+                        completionBlock(YES, YES, objects);
+                    }
+                }];
+
+```` 
