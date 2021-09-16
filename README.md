@@ -7,7 +7,7 @@ In **ViewController** I added a function named **loadDevices**. LoadDevices call
 After selecting a device from the tableview in **didSelectRowAtIndexPath**, getReadingsForDevice is called and the returned Device object is passed into **DetailViewController**.  With the Device object the min, avg and max are calculated and returned as a dictionary from calculateReadings in the Util class. Then the UI is drawn from the **Theme** class and added to the DetailViewController's view as a subview.
 <br/>
 <br/>
-### Note About API
+### Note About API:
 There only seems to be object populated with data "Device 2" with an id of "2".
 <br/>
 <br/>
