@@ -32,6 +32,8 @@
 
     UILabel *minTempLabel = [Theme label:CGRectMake(xOffset, yOffsetTemp, 60, labelHeight)];
     minTempLabel.text = @"MIN:";
+    minTempLabel.textColor = [UIColor whiteColor];
+    minTempLabel.backgroundColor = kColorFlatGreen;
     [details addSubview:minTempLabel];
     
     UILabel *minTemp = [Theme label:CGRectMake(xOffset, yOffsetTemp+30, 60, 30)];
@@ -45,6 +47,8 @@
     
     UILabel *avgTempLabel = [Theme label:CGRectMake(xOffset+70, yOffsetTemp, 60, 30)];
     avgTempLabel.text = @"AVG:";
+    avgTempLabel.textColor = [UIColor whiteColor];
+    avgTempLabel.backgroundColor = kColorFlatBlue;
     [details addSubview:avgTempLabel];
     
     UILabel *avgTemp = [Theme label:CGRectMake(xOffset+70, yOffsetTemp+30, 60, 30)];
@@ -57,6 +61,8 @@
     
     UILabel *maxTempLabel = [Theme label:CGRectMake(xOffset+140, yOffsetTemp, 60, 30)];
     maxTempLabel.text = @"MAX:";
+    maxTempLabel.textColor = [UIColor whiteColor];
+    maxTempLabel.backgroundColor = kColorFlatRed;
     [details addSubview:maxTempLabel];
     
     UILabel *maxTemp = [Theme label:CGRectMake(xOffset+140, yOffsetTemp+30, 60, 30)];
@@ -79,6 +85,8 @@
     
     UILabel *minHumidityLabel = [Theme label:CGRectMake(xOffset, yOffset, 60, 30)];
     minHumidityLabel.text = @"MIN:";
+    minHumidityLabel.textColor = [UIColor whiteColor];
+    minHumidityLabel.backgroundColor = kColorFlatGreen;
     [details addSubview:minHumidityLabel];
     
     UILabel *minHumidity = [Theme label:CGRectMake(xOffset, yOffset+30, 60, 30)];
@@ -91,6 +99,8 @@
     
     UILabel *avgHumidityLabel = [Theme label:CGRectMake(xOffset+70, yOffset, 60, 30)];
     avgHumidityLabel.text = @"AVG:";
+    avgHumidityLabel.textColor = [UIColor whiteColor];
+    avgHumidityLabel.backgroundColor = kColorFlatBlue;
     [details addSubview:avgHumidityLabel];
     
     UILabel *avgHumidity = [Theme label:CGRectMake(xOffset+70, yOffset+30, 60, 30)];
@@ -103,6 +113,8 @@
     
     UILabel *maxHumidityLabel = [Theme label:CGRectMake(xOffset+140, yOffset, 60, 30)];
     maxHumidityLabel.text = @"MAX:";
+    maxHumidityLabel.textColor = [UIColor whiteColor];
+    maxHumidityLabel.backgroundColor = kColorFlatRed;
     [details addSubview:maxHumidityLabel];
     
     UILabel *maxHumidity = [Theme label:CGRectMake(xOffset+140, yOffset+30, 60, 30)];
@@ -118,7 +130,6 @@
 
 + (UILabel *)label:(CGRect)rect {
     UILabel *label = [[UILabel alloc]initWithFrame:rect];
-    label.backgroundColor = [kColorFlatBlack colorWithAlphaComponent:0.3];
     label.font = kFontDemiBoldItalicWSize(12);
     label.textAlignment = NSTextAlignmentCenter;
     return label;
