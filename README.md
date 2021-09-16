@@ -22,8 +22,7 @@ All ui elements are drawn from the **Theme** class
 ### Util:
 Calculate min, avg and max values from readings
 > (NSDictionary *)calculateReadings:(NSArray *)readings 
-<br/>
-<br/>
+
 ```Objective-C 
 + (NSDictionary *)calculateReadings:(NSArray *)readings {
     
