@@ -7,6 +7,15 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "CoreDataController.h"
+#import "Device+CoreDataClass.h"
+#import "Reading+CoreDataClass.h"
+#import "Util.h"
+
+#pragma mark - Block Testing
+#define setupBlock() __block BOOL blockFinished = NO;
+#define awaitBlock() while (CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0, true) && !blockFinished);
+#define finishedBlock() blockFinished = YES;
 
 @interface CanaryHomeworkTests : XCTestCase
 
@@ -14,24 +23,36 @@
 
 @implementation CanaryHomeworkTests
 
-- (void)setUp {
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-}
-
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
+- (void)testLoadDevices {
+    setupBlock()
+    [[CoreDataController sharedCache] getAllDevices:^(BOOL completed, BOOL success, NSArray * _Nonnull objects) {
+        if (success) {
+            XCTAssertTrue(objects.count > 0);
+            Device *testDevice = objects.firstObject;
+            XCTAssertTrue([testDevice.name isKindOfClass:[NSString class]]);
+            XCTAssertTrue([testDevice.deviceID isKindOfClass:[NSString class]]);
+            XCTAssertTrue([testDevice.name isKindOfClass:[NSString class]]);
+            finishedBlock()
+        } else {
+            NSLog(@"error loading devices...");
+        }
     }];
+    awaitBlock()
+}
+
+- (void)testGetReadingsForDevice {
+    setupBlock()
+    NSString *testDeviceId = @"2";
+    [[CoreDataController sharedCache] getReadingsForDevice:testDeviceId completionBlock:^(BOOL completed, BOOL success, NSArray * _Nonnull objects) {
+        if (success == YES) {
+            Reading *testReading = objects.firstObject;
+            XCTAssertTrue([testReading.type isKindOfClass:[NSString class]]);
+            finishedBlock()
+        } else {
+            NSLog(@"Error Getting Readings...");
+        }
+    }];
+    awaitBlock()
 }
 
 @end
