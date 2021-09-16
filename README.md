@@ -16,7 +16,7 @@ this is a unit test
 <br/>
 <br/>
 ### UI:
-  * All ui elements are drawn from the **Theme** class
+All ui elements are drawn from the **Theme** class
 <br/>
 <br/>
 ### Util:
